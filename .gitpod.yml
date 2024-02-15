@@ -1,4 +1,4 @@
-image:
+image: 
   file: .gitpod.dockerfile
 tasks:
   - init: . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh
@@ -14,3 +14,6 @@ vscode:
     - ms-toolsai.jupyter
     - ms-toolsai.jupyter-keymap
     - ms-toolsai.jupyter-renderers
+    - ms-python.debugpy
+    - ms-toolsai.vscode-jupyter-cell-tags
+    - ms-toolsai.vscode-jupyter-slideshow
