@@ -1,13 +1,13 @@
 from sqlalchemy import (
-    create_engine, Table, Column, Float, ForeignKey, Integer, String, MetaData
+    create_engine, Column, Float, ForeignKey, Integer, String
 )
 
 # execturing instructions from localhost "chinook" db
 db = create_engine("postgresql:///chinook")
 
-meta = MetaData(db)
+meta = metadata(db)
 
-# create variable for artist table 
+# create variable for artist table
 artist_table = Table(
     "artist", meta,
     Column("artist_id", Integer, primary_key=True),
@@ -43,16 +43,16 @@ with db.connect() as connection:
     # Q2 just name column
     # select_query = artist_table.select().with_only_columns([artist_table.c.name])
 
-    # Q3 
+    # Q3
     # select_query = artist_table.select().where(artist_table.c.name == "Queen")
 
-    # Q4 
+    # Q4
     # select_query = artist_table.select().where(artist_table.c.artist_id == 51)
 
-    # Q5 
+    # Q5
     # select_query = album_table.select().where(album_table.c.artist_id == 51)
 
-    # Q6 
+    # Q6
     select_query = track_table.select().where(track_table.c.composer == "Queen")
 
     results = connection.execute(select_query)
